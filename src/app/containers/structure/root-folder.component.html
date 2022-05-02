@@ -1,0 +1,15 @@
+<div class="root">
+  <div class="folder-content">
+    <ng-container>
+      <span>root</span>
+      <app-folder-controls [formArray]="(formGroup | getFormArray : 'root')"></app-folder-controls>
+      <button (click)="removeSelected()">remove selected</button>
+    </ng-container>
+    <form [formGroup]="formGroup">
+      <div *ngFor="let control of (formGroup | getFormArray : 'root')?.controls; trackBy: identity"
+           class="form-row">
+        <app-dynamic-form-item [form]="control"></app-dynamic-form-item>
+      </div>
+    </form>
+  </div>
+</div>

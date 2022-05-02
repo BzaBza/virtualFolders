@@ -1,0 +1,8 @@
+.image {
+  max-width: 12.5rem;
+}
+.not-supported {
+  background-color: rgba(222, 184, 135, 0.2);
+  border: 1px solid rgba(222, 184, 135, 0.47);
+  padding: 2rem;
+}

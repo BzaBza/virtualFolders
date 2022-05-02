@@ -1,0 +1,28 @@
+<div class="item-controls" [formGroup]="form">
+  <ng-container [ngSwitch]="form.get('controlType')?.value">
+    <span *ngSwitchCase="folderItem" class="material-icons icon folder">folder</span>
+    <span *ngSwitchCase="fileItem"
+          class="material-icons icon file"
+    (click)="openFile.emit()">insert_drive_file</span>
+  </ng-container>
+
+  <input type="checkbox" class="checkbox" [formControlName]="'checked'">
+  <input type="text" [formControlName]="'name'"
+         [value]="form.get('name').value"
+         appFocus
+         [shouldFocused]="!form.get('name').disabled?.value"
+         (focusout)="form.get('name').disable()">
+
+  <ng-container [ngSwitch]="form.get('name').disabled">
+    <button class="edit-button" *ngSwitchCase="true" (click)="form.get('name').enable()">
+      <span class="material-icons icon">edit</span>
+    </button>
+    <button class="edit-button" *ngSwitchCase="false" (click)="form.get('name').disable()">
+      <span class="material-icons icon">close</span>
+    </button>
+  </ng-container>
+
+  <app-folder-controls *ngIf="form.get('controlType').value === folderItem"
+                       [formArray]="(form | getFormArray : 'data')">
+  </app-folder-controls>
+</div>

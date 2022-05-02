@@ -1,0 +1,23 @@
+.dynamic-item {
+  display: flex;
+  align-items: flex-start;
+  margin-top: .5rem;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+  width: fit-content;
+}
+
+.checkbox {
+  cursor: pointer;
+}
+
+.file {
+  position: fixed;
+  right: 5rem;
+}
+
+.displayed-file {
+  border: 1px solid rgba(100, 149, 237, 0.38);
+  background-color: rgba(100, 149, 237, 0.06);
+}

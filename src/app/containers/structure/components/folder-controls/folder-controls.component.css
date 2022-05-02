@@ -1,0 +1,16 @@
+.add-file {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 23px;
+  left: 0;
+  top: 0;
+  opacity: 0;
+  cursor: pointer;
+}

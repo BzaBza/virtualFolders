@@ -1,0 +1,7 @@
+<form class="folder" [formGroup]="form">
+  <div [ngClass]="(form | getFormArray : 'data').controls.length ? 'folder-content' : ''">
+    <div *ngFor="let control of (form | getFormArray : 'data').controls; trackBy: identity" class="form-row">
+      <app-dynamic-form-item [form]="control" (save)="save.emit()"></app-dynamic-form-item>
+    </div>
+  </div>
+</form>

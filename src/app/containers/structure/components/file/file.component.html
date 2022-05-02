@@ -1,0 +1,9 @@
+<form class="file" [formGroup]="form">
+  <ng-container [ngSwitch]="data?.type">
+    <iframe *ngSwitchCase="'pdf'" [src]="transform(data.file)"  width=200 height=200 id="frame"></iframe>
+    <img class="image" *ngSwitchCase="['jpeg', 'png', 'jpg'].includes(data?.type) ? data?.type : ''"
+         [src]="transform(data.file)"
+         alt="image"/>
+    <div *ngSwitchDefault class="not-supported">Sorry this format is not supported for preview</div>
+  </ng-container>
+</form>

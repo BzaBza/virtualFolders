@@ -1,0 +1,15 @@
+<div class="dynamic-item"
+     [formGroup]="form"
+     [ngClass]="(formService.displayFile$ | async) === fileId ? 'displayed-file' : ''">
+  <app-item-controls (save)="setFormChange()" [form]="form" (openFile)="displayFilePreview()"></app-item-controls>
+  <ng-container [ngSwitch]="form.get('controlType').value">
+    <app-file class="file"
+              [hidden]="(formService.displayFile$ | async) !== fileId"
+              *ngSwitchCase="fileItem"
+              [form]="form"></app-file>
+    <app-folder *ngSwitchCase="folderItem"
+                (save)="setFormChange()"
+                [form]="form"></app-folder>
+  </ng-container>
+</div>
+
